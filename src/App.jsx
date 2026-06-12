@@ -1,250 +1,38 @@
-// import React, { useState } from 'react';
-// import heroImg from './assets/hero_1.png';
-// import cloveLogo from './assets/clove.png';
-// import productImg from './assets/image_3.png'; // Imported exactly as requested
-// import './App.css';
-
-// export default function App() {
-//   const [hasGaps, setHasGaps] = useState(null);
-//   const [fullName, setFullName] = useState('');
-//   const [mobileNumber, setMobileNumber] = useState('');
-//   const [consent, setConsent] = useState(false);
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log({ hasGaps, fullName, mobileNumber, consent });
-//   };
-
-//   return (
-//     <div className="landing-page-container">
-
-//       {/* 1. Hero Banner Block */}
-//       <div className="hero-banner-container">
-//         <div className="hero-content-wrapper">
-//           <div className="hero-text-side">
-//             <h1 className="hero-title">Invisible Aligners for a dream smile</h1>
-//             <p className="hero-subtitle">
-//               Book a Scan and avail a free <br />
-//               Orthodontist Consult <span className="purple-highlight">worth ₹1500</span>
-//             </p>
-//           </div>
-//           <div className="hero-image-side">
-//             <img 
-//               src={heroImg} 
-//               alt="Smiling woman holding aligner" 
-//               className="hero-main-img" 
-//             />
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* 2. Questionnaire & Form Block */}
-//       <div className="form-section-container">
-//         <h2 className="question-heading">Do you have Teeth Gaps or Crooked Teeth?</h2>
-
-//         <form onSubmit={handleSubmit} className="lead-capture-form">
-//           <div className="radio-options-row">
-//             <label className="custom-radio-label">
-//               <input
-//                 type="radio"
-//                 name="teethCondition"
-//                 value="yes"
-//                 checked={hasGaps === 'yes'}
-//                 onChange={(e) => setHasGaps(e.target.value)}
-//               />
-//               <span className="radio-circle"></span>
-//               Yes
-//             </label>
-//             <label className="custom-radio-label">
-//               <input
-//                 type="radio"
-//                 name="teethCondition"
-//                 value="no"
-//                 checked={hasGaps === 'no'}
-//                 onChange={(e) => setHasGaps(e.target.value)}
-//               />
-//               <span className="radio-circle"></span>
-//               No
-//             </label>
-//           </div>
-
-//           <div className="inputs-action-row">
-//             <div className="input-field-box">
-//               <span className="floating-input-label">Full Name*</span>
-//               <input
-//                 type="text"
-//                 value={fullName}
-//                 onChange={(e) => setFullName(e.target.value)}
-//                 placeholder="Ajay Kumar"
-//                 required
-//               />
-//             </div>
-
-//             <div className="input-field-box phone-input-box">
-//               <span className="country-prefix">+91</span>
-//               <input
-//                 type="tel"
-//                 value={mobileNumber}
-//                 onChange={(e) => setMobileNumber(e.target.value)}
-//                 placeholder="Mobile number*"
-//                 required
-//               />
-//             </div>
-
-//             <button type="submit" className="action-submit-btn">
-//               Book a Free Scan
-//             </button>
-//           </div>
-
-//           <div className="form-consent-row">
-//             <label className="checkbox-label-wrapper">
-//               <input
-//                 type="checkbox"
-//                 checked={consent}
-//                 onChange={(e) => setConsent(e.target.checked)}
-//               />
-//               <span className="checkbox-square"></span>
-//               <span className="consent-text-content">
-//                 I hereby consent to receive calls / messages from Whistle and its partners and override DND settings.
-//               </span>
-//             </label>
-//           </div>
-//         </form>
-//       </div>
-
-//       {/* 3. Clove Dental Clinic Locator Card */}
-//       <div className="clove-locator-card">
-//         <div className="locator-text-panel">
-//           <h3 className="locator-message">
-//             Book a Free 3D Teeth Scan and Orthodontist Consult in a <br />
-//             Clove Dental Clinic near you.
-//           </h3>
-//         </div>
-//         <div className="locator-brand-panel">
-//           <img 
-//             src={cloveLogo} 
-//             alt="Clove Dental" 
-//             className="clove-brand-logo" 
-//           />
-//           <div className="clinic-dropdown-selector">
-//             <span>Find Clinic</span>
-//             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-//               <path d="M1 1L5 5L9 1" stroke="#7C59DF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-//             </svg>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* 4. Infinite Launch Benefit Marquee Ticker */}
-//       <div className="ticker-tape-marquee">
-//         <div className="marquee-content-track">
-//           <span>Our inaugural launch benefit</span>
-//           <span><strong>Free teeth scan</strong> worth ₹500</span>
-//           <span><strong>Free orthodontic consultation</strong> worth ₹1500</span>
-//           <span>Our inaugural launch benefit</span>
-//           <span><strong>Free teeth scan</strong> worth ₹500</span>
-//           <span><strong>Free orthodontic consultation</strong> worth ₹1500</span>
-//         </div>
-//       </div>
-
-//       {/* 5. Pricing / Product Presentation Section */}
-//       <div className="pricing-display-section">
-//         <div className="pricing-text-column">
-//           <h2 className="pricing-main-title">Dream smiles achieved secretly</h2>
-//           <p className="pricing-description">
-//             Experience the superior quality of our Whistle Aligners crafted with 3-layer PU material. 
-//             With 450+ clinics nationwide, enjoy comfortable treatment by expert orthodontists at House of Clove.
-//           </p>
-//           <p className="pricing-disclaimer">
-//             The pricing is different for every case. Cases with higher complexity requiring more aligners 
-//             and additional time and effort from our dentists.
-//           </p>
-//         </div>
-
-//         <div className="pricing-product-card">
-//           <div className="card-info-side">
-//             <h3 className="product-brand-title">Whistle Aligners</h3>
-//             <div className="price-tag-group">
-//               <span className="original-strikethrough-price">₹84,000</span>
-//               <div className="current-price-label">
-//                 <span className="starting-at-text">starting at</span>
-//                 <span className="main-computed-price">₹47,999</span>
-//               </div>
-//               <span className="tax-inclusion-notice">inc. of all taxes</span>
-//             </div>
-
-//             <div className="product-bullet-features">
-//               <div className="feature-item">
-//                 <span className="green-checkmark-icon">✓</span>
-//                 <span className="feature-text">Offer valid for a limited time</span>
-//               </div>
-//               <div className="feature-item">
-//                 <span className="green-checkmark-icon">✓</span>
-//                 <span className="feature-text">Easy financing options</span>
-//               </div>
-//             </div>
-//           </div>
-
-//           <div className="card-visual-side">
-//             <img 
-//               src={productImg} 
-//               alt="Whistle Aligners Premium Case Box" 
-//               className="product-case-display-img" 
-//             />
-//             <a href="#learn-more" className="learn-more-anchor-btn">
-//               <span>Learn more</span>
-//               <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-//                 <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="#7C59DF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-//               </svg>
-//             </a>
-//           </div>
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-
-
-
 
 import React, { useState, useEffect } from 'react';
 import heroImg from './assets/hero_1.png';
 import cloveLogo from './assets/clove.png';
 import productImg from './assets/image_3.png';
-
-// Local Mock JSON file import
 import localResultsData from './data/resultsData';
 import localWhistleData from './data//whyWhistleData.js';
 import './App.css';
 
 
 export default function App() {
-  // 1. Existing Lead Form State
+
+
+  //-------------------------------------States---------------------------------------
   const [hasGaps, setHasGaps] = useState(null);
   const [fullName, setFullName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [consent, setConsent] = useState(false);
 
-  // 2. Existing Transformation Showcase States
+
   const [caseStudies, setCaseStudies] = useState([]);
   const [isLoadingResults, setIsLoadingResults] = useState(true);
   const [resultsError, setResultsError] = useState(null);
 
-  // 3. New "Why Whistle?" Showcase States
+
   const [whistleFeatures, setWhistleFeatures] = useState([]);
   const [isLoadingWhistle, setIsLoadingWhistle] = useState(true);
   const [whistleError, setWhistleError] = useState(null);
 
 
   const [selectedFilter, setSelectedFilter] = useState("all");
-
   const [openFaq, setOpenFaq] = useState(null);
-
   const [activeTab, setActiveTab] = useState("results");
 
-  // Lifecycle fetch for Transformation Cards
+  // -----------------------Lifecycle fetch for Transformation Cards-------------------------
   useEffect(() => {
     const fetchTransformationData = async () => {
       try {
@@ -261,7 +49,7 @@ export default function App() {
     fetchTransformationData();
   }, []);
 
-  // Lifecycle fetch for "Why Whistle?" Section
+  // -----------------------Lifecycle fetch for "Why Whistle?" Section-----------------------------------
   useEffect(() => {
     const fetchWhistleData = async () => {
       try {
@@ -278,12 +66,15 @@ export default function App() {
     fetchWhistleData();
   }, []);
 
+
+  //---------------------------------------Form Handler---------------------------------------
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log({ hasGaps, fullName, mobileNumber, consent });
   };
 
 
+  //---------------------------------------Filter Handler---------------------------------------
   const filteredCaseStudies = caseStudies.filter((item) => {
     if (selectedFilter === "all") return true;
 
@@ -297,6 +88,7 @@ export default function App() {
   });
 
 
+  //---------------------------------------FAQ Handler---------------------------------------
   const faqData = [
     {
       id: 1,
@@ -318,7 +110,7 @@ export default function App() {
   return (
     <div className="landing-page-container">
 
-      {/* 1. Hero Banner Block */}
+      {/* Hero Banner Block */}
       <div className="hero-banner-container">
         <div className="hero-content-wrapper">
           <div className="hero-text-side">
@@ -334,7 +126,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* 2. Questionnaire & Capture Form Block */}
+      {/* Questionnaire & Capture Form Block */}
       <div className="form-section-container">
         <h2 className="question-heading">Do you have Teeth Gaps or Crooked Teeth?</h2>
         <form onSubmit={handleFormSubmit} className="lead-capture-form">
@@ -397,7 +189,7 @@ export default function App() {
         </form>
       </div>
 
-      {/* 3. Clove Dental Clinic Locator Card */}
+      {/*  Clove Dental Clinic Locator Card */}
       <div className="clove-locator-card">
         <div className="locator-text-panel">
           <h3 className="locator-message">
@@ -416,7 +208,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* 4. Infinite Launch Benefit Marquee Ticker */}
+      {/* Infinite Launch Benefit Marquee Ticker */}
       <div className="ticker-tape-marquee">
         <div className="marquee-content-track">
           <span>Our inaugural launch benefit</span>
@@ -430,7 +222,7 @@ export default function App() {
 
 
 
-      {/* 6. Pricing Presentation Section */}
+      {/* Pricing Presentation Section */}
       <div className="pricing-display-section">
         <div className="pricing-text-column">
           <h2 className="pricing-main-title">Dream smiles achieved secretly</h2>
@@ -489,6 +281,8 @@ export default function App() {
         </button>
       </div>
 
+
+      {/* Results Showcase Section */}
       {activeTab === "results" && (
 
         <div className="results-showcase-section">
@@ -564,9 +358,7 @@ export default function App() {
       )}
 
 
-      {/* 5. NEW: Why Whistle Section */}
-
-
+      {/*  Why Whistle Section */}
       {activeTab === "whistle" && (
         <div className="whistle-features-section">
           <h2 className="whistle-section-title">Why Whistle?</h2>
@@ -612,6 +404,8 @@ export default function App() {
       )}
 
 
+
+      {/*  FAQ Section */}
       <div className="faq-section">
         <h2 className="faq-title">Frequently Asked Questions</h2>
 
