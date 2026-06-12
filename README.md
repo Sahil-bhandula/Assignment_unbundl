@@ -1,22 +1,99 @@
-# React + Vite
+# Unbundl Frontend Developer Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This project is a React implementation of the provided Whistle Figma design. The goal was to recreate the UI as closely as possible while demonstrating React fundamentals, responsive design, dynamic data rendering, loading states, error handling, and user interactions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React (Functional Components)
+* React Hooks (useState, useEffect)
+* CSS
+* Vite
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup Instructions
 
+1. Clone the repository
 
+```bash
+git clone <repository-url>
+```
 
+2. Navigate to the project folder
 
-Interaction Added:
-A filter toggle was implemented in the "Results You'll Love" section, allowing users to filter treatment cases based on duration.
+```bash
+cd project-folder
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Start the development server
+
+```bash
+npm run dev
+```
+
+5. Open the local URL shown in the terminal.
+
+---
+
+## Data Source
+
+The provided public APIs did not map naturally to the dental treatment content shown in the Figma design. As permitted in the assessment instructions, local JSON files were used as mock data sources.
+
+Data files used:
+
+* `resultsData.js`
+* `whyWhistleData.js`
+
+Data loading is simulated asynchronously using `useEffect` to demonstrate a realistic fetch lifecycle.
+
+---
+
+## Features Implemented
+
+### Figma Recreation
+
+Implemented multiple sections from the provided design, including:
+
+* Hero Section
+* Lead Capture Form
+* Clinic Locator Section
+* Pricing Section
+* Results Showcase
+* Why Whistle Section
+* FAQ Section
+
+### Dynamic Data Handling
+
+* useState for state management
+* useEffect for data loading lifecycle
+* Loading skeleton states
+* Error handling and fallback messages
+* Dynamic rendering using mapped data
+
+### User Interactions
+
+Implemented the following interactions:
+
+* Filter toggle for treatment results
+* Tab switch between "Results" and "Why Whistle" content views
+* FAQ accordion with expand/collapse functionality
+
+### Responsive Design
+
+The layout is responsive across desktop, tablet, and mobile screen sizes using custom CSS and media queries.
+
+---
+
+## Approach
+
+I first recreated the core sections from the Figma design and structured them into reusable React components. Since the provided APIs did not fit the dental-treatment content, I used local JSON files and simulated asynchronous loading while implementing loading and error states. Additional interactions such as filtering, tab switching, and an accordion were added to demonstrate state management and user experience considerations.

@@ -1,4 +1,3 @@
-// Images ko assets folder se import karein (As per image_a1e4fe.png labels)
 import choose1 from '../assets/choose1.png';
 import choose2 from '../assets/choose2.png';
 import choose3 from '../assets/choose3.png';
